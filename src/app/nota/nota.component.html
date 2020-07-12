@@ -1,0 +1,44 @@
+<body style="background-color: Lavender;">
+<br>
+<br>
+<form [formGroup]="notasreg" 
+class="button-group px-md-5" (submit)="agregarNotas($event)">
+<div class="input-group px-md-5"> 
+    <div class="input-group-prepend">
+      <span  class="input-group-text" id="inputGroup-sizing-sm">titulo</span>
+    </div>
+    <input formControlName="aceptado" required  [(ngModel)]="notasadd" (keyup.enter)="notasadd=''" class="textfield" name="notasadd" type="text" 
+    size=40 style="width:900px" aria-label="Sizing example input" 
+    aria-describedby="inputGroup-sizing-sm">
+    <span *ngIf="this.notasreg.get('aceptado').errors?.required">
+      Campo requerido
+    </span>
+</div>
+<br>
+<div  class="input-group px-md-5">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-sm">Descripcion</span>
+    </div>
+    <textarea formControlName="aceptadoD" required [(ngModel)]="Dadd" (keyup.enter)="Dadd=''" class="textfield" name="Dadd" type="text" 
+    size=40 style="width:900px" aria-label="Sizing example input" 
+    aria-describedby="inputGroup-sizing-sm"></textarea>
+    <span *ngIf="this.notasreg.get('aceptadoD').errors?.required">
+      Campo requerido
+    </span>
+</div>
+
+  <br>
+  <div class="button-group px-md-5">
+    <button class="btn btn-primary" 
+      style="border-radius: 3px;"  id="button-addon2"  type="submit" >Guardar
+    
+    </button></div>
+  </form>
+  <br>
+  <ul>
+    <app-notasreg [notas]="notas" *ngFor="let notas of newNotas; let i=index">
+    </app-notasreg>
+  
+    </ul>
+
+</body>

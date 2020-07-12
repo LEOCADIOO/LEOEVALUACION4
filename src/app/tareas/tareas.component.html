@@ -1,0 +1,38 @@
+
+  <body style="background-color: Lavender;">
+  <br>
+  <form [formGroup]="tareasreg"  (submit)="agregarTareas($event)">
+  <div class="input-group px-md-3" >
+    <div class="form-group" class="form-group col-md-6 offset-md-1 ">
+    <input  formControlName="aceptado" required [(ngModel)]="tareasadd" (keyup.enter)="tareasadd=''" class="textfield"
+     name="tareasadd" type="text" 
+     class="form-control" placeholder="ingrese una tarea nueva" >
+    </div> 
+    
+    <div class="form-group" class="form-group col-md-5;" style="margin-left: 50px;">
+    
+      <button class="btn btn-primary" 
+      style="border-radius: 3px;"  id="button-addon2"  type="submit" >Guardar</button>
+    </div>
+    <div style="margin-top: 50px;">
+    <span style="color:black; margin-left: -780px;" *ngIf="this.tareasreg.get('aceptado').errors?.required">
+      Campo requerido
+    </span>
+    </div>
+  </div>
+  </form>
+  <form (submit)="eliminarTareas($event)">
+  <div class="button px-md-3">
+    <button class="btn btn-danger mb-2 offset-md-1" style="border-radius: 3px;" type="submit" id="button-addon2">Eliminar</button>
+  </div>
+  </form>
+  <ul>
+    <app-tareasreg [tareas]="tareas" *ngFor="let tareas of newtarea; let i=index">
+      
+    </app-tareasreg>
+    
+    </ul>
+
+</body>
+
+

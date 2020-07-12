@@ -1,0 +1,8 @@
+.todos input.checkbox {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .todos .checked {
+    text-decoration: line-through;
+  }
